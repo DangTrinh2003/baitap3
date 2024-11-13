@@ -1,0 +1,23 @@
+/* Thêm CSS để làm đẹp giao diện */
+body {
+    font-family: Arial, sans-serif;
+}
+h2 {
+    color: #2C98F0;
+}
+button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}
+.error {
+    color: red;
+}
+.success {
+    color: green;
+}

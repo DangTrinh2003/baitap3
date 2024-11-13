@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm Sản Phẩm Mới</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h2>Thêm Sản Phẩm Mới</h2>
+    <form method="POST">
+        <label for="product_name">Tên sản phẩm:</label>
+        <input type="text" name="product_name" required><br>
+        <label for="product_price">Giá sản phẩm:</label>
+        <input type="text" name="product_price" required><br>
+        <label for="category_id">Mã danh mục:</label>
+        <input type="text" name="category_id" required><br>
+        <button type="submit">Thêm Sản Phẩm</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <p class="{{ category }}">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</body>
+
+</html>
