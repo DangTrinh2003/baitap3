@@ -57,7 +57,7 @@ def search_product():
         cursor.close()
     return render_template('search.html', results=results)
 
-# Trang thêm sản phẩm mới
+ # Trang thêm sản phẩm mới
 @app.route('/add_product', methods=['GET', 'POST'])
 def add_product():
     username = request.args.get('username')
@@ -68,13 +68,21 @@ def add_product():
         product_name = request.form['product_name']
         product_price = request.form['product_price']
         category_id = request.form['category_id']
-        cursor = connection.cursor()
-        query = "INSERT INTO products (product_name, product_price, category_id) VALUES (%s, %s, %s)"
-        cursor.execute(query, (product_name, product_price, category_id))
-        connection.commit()
-        cursor.close()
-        flash("Sản phẩm đã được thêm thành công!", "success")
-        return redirect(url_for('menu', username=username, password=password))
+        
+        try:
+            cursor = connection.cursor()
+            query = "INSERT INTO products (product_name, product_price, category_id) VALUES (%s, %s, %s)"
+            cursor.execute(query, (product_name, product_price, category_id))
+            connection.commit()
+            flash("Sản phẩm đã được thêm thành công!", "success")
+        
+        except psycopg2.Error as e:
+            flash("Thêm sản phẩm thất bại. Vui lòng thử lại.", "error")
+            connection.rollback()
+        
+        finally:
+            cursor.close()
+    
     return render_template('add_product.html')
 
 if __name__ == '__main__':

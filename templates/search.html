@@ -8,21 +8,23 @@
 </head>
 
 <body>
-    <h2>Tìm Kiếm Sản Phẩm</h2>
-    <form method="POST">
-        <label for="product_name">Tên sản phẩm:</label>
-        <input type="text" name="product_name" required>
-        <button type="submit">Tìm Kiếm</button>
-    </form>
-    {% if results %}
-    <ul>
-        {% for product in results %}
-        <li>ID: {{ product[0] }}, Tên: {{ product[1] }}, Giá: {{ product[2] }}, Danh mục: {{ product[3] }}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>Không tìm thấy sản phẩm nào.</p>
-    {% endif %}
+    <div class="container">
+        <h2>Tìm Kiếm Sản Phẩm</h2>
+        <form method="POST">
+            <label for="product_name">Tên sản phẩm:</label>
+            <input type="text" name="product_name" required>
+            <button type="submit">Tìm Kiếm</button>
+        </form>
+        {% if results %}
+        <ul>
+            {% for product in results %}
+            <li>ID: {{ product[0] }}, Tên: {{ product[1] }}, Giá: {{ product[2] }}, Danh mục: {{ product[3] }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Không tìm thấy sản phẩm nào.</p>
+        {% endif %}
+    </div>
 </body>
 
 </html>

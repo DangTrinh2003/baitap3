@@ -1,23 +1,98 @@
-/* Thêm CSS để làm đẹp giao diện */
+/* Nền và căn chỉnh tổng thể */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Màu nền nhẹ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
+
+/* Tiêu đề */
 h2 {
     color: #2C98F0;
+    margin-bottom: 20px;
+    text-align: center;
 }
+
+/* Form và container */
+form, .container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+/* Hộp nhập liệu */
+input[type="text"], input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Nút bấm */
 button {
-    padding: 10px 15px;
+    padding: 12px 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
 }
+
 button:hover {
-    background-color: #45a049;
+    background-color: #3e8e41;
+    transform: scale(1.05);
 }
+
+/* Liệt kê sản phẩm */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tin nhắn thông báo */
 .error {
     color: red;
+    font-size: 14px;
+    margin-top: 10px;
 }
 .success {
     color: green;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Liên kết nút */
+a {
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+a button {
+    width: auto;
+    display: inline-block;
 }

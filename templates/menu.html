@@ -8,14 +8,16 @@
 </head>
 
 <body>
-    <h2>Quản Lý Sản Phẩm</h2>
-    <p>Chào mừng, {{ username }}!</p>
-    <a href="{{ url_for('search_product', username=username, password=password) }}">
-        <button>Tìm Kiếm Sản Phẩm</button>
-    </a>
-    <a href="{{ url_for('add_product', username=username, password=password) }}">
-        <button>Thêm Sản Phẩm Mới</button>
-    </a>
+    <div class="container">
+        <h2>Quản Lý Sản Phẩm</h2>
+        <p>Chào mừng, {{ username }}!</p>
+        <a href="{{ url_for('search_product', username=username, password=password) }}">
+            <button>Tìm Kiếm Sản Phẩm</button>
+        </a>
+        <a href="{{ url_for('add_product', username=username, password=password) }}">
+            <button>Thêm Sản Phẩm Mới</button>
+        </a>
+    </div>
 </body>
 
 </html>

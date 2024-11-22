@@ -8,21 +8,21 @@
 </head>
 
 <body>
-    <h2>Đăng Nhập</h2>
     <form method="POST" action="{{ url_for('login') }}">
+        <h2>Đăng Nhập</h2>
         <label for="username">Tên đăng nhập:</label>
-        <input type="text" name="username" required><br>
+        <input type="text" name="username" id="username" required>
         <label for="password">Mật khẩu:</label>
-        <input type="password" name="password" required><br>
+        <input type="password" name="password" id="password" required>
         <button type="submit">Đăng Nhập</button>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <p class="{{ category }}">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
     </form>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    {% for category, message in messages %}
-    <p class="{{ category }}">{{ message }}</p>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
 </body>
 
 </html>
